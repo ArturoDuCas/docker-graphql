@@ -62,7 +62,10 @@ jobs:
 
       # see version
       - name: Show version
-        run: echo "Version: ${{ steps.version.outputs.version }}"
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          echo "Version: $VERSION"
 
       # # Extract metadata (tags, labels) for Docker
       # - name: Extract Docker metadata
